@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo e(__('Employee Email')); ?></title>
+</head>
+<body>
+    <div style="font-family:'Roboto,RobotoDraft,Helvetica,Arial,sans-serif',Arial,sans-serif;background:#e5e5e5;margin:0">
+        <div style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;background:#e5e5e5;margin:0;padding:50px 15px">
+            <table style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;max-width:700px;width:100%;margin:auto;border-top:4px solid #ffa700;border-spacing:0;background:#fff">
+                <tbody>
+                    <tr>
+                        <td style="padding:15px 20px 0 20px;background:#fff">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:5px 0;font-size:16px;font-weight:bold;color:#1e2538;line-height:22px"><?php echo e($title); ?></h2>
+                                        </td>
+                                        <td>
+                                            <?php if( $title == 'Appointment Cancellation'): ?>
+                                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#fe0303;margin:0;background:#f1fff0;border:1px solid #fe0303;border-radius:3px;width:100px;padding:5px;margin-left:auto"><?php echo e(__('Canceled')); ?></p>
+                                            <?php else: ?>
+                                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-weight:500;font-size:14px;line-height:18px;text-align:center;color:#60b158;margin:0;background:#f1fff0;border:1px solid #60b158;border-radius:3px;width:100px;padding:5px;margin-left:auto"><?php echo e(__('Created')); ?></p>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php if(isset($employee)): ?>
+                    <tr>
+                        <td style="padding:10px 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:10px">
+                                <tbody><tr>
+                                    <td>
+                                        <h2 style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:bold;color:#1e2538;line-height:22px">
+                                            <?php if( $title == 'Appointment Cancellation'): ?>
+                                                <?php echo e(__('Cancel')); ?>
+
+                                            <?php else: ?>
+                                                <?php echo e(__('Approved')); ?>
+
+                                            <?php endif; ?>
+                                        <?php echo e(__('by')); ?>: <u></u><?php echo e($employee->first_name.' '.$employee->last_name); ?><u></u></h2>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:500;color:#73788b;line-height:16px;max-width:160px"><?php echo e(date('D, d m Y h:i:s A')); ?></span>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <?php endif; ?>
+                    <tr>
+                        <td style="padding:5px 20px 0">
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:600;font-size:14px;line-height:18px;color:#1e2538;margin-bottom:15px"><?php echo e(__('Hi')); ?> <?php echo e($name); ?>,</p>
+                            <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-weight:500;font-size:14px;line-height:18px;color:#73788b"><?php echo e(__('Your Account is')); ?> 
+                            <span style="color:#60b158"><?php echo e(__('Created')); ?></span> <?php echo e(__('custom_site_name', ['name' => $site_name])); ?>.
+                           </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                            <?php echo e(__('Name')); ?>:
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
+                                            <?php echo e($name); ?>
+
+                                        </span></p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                            <?php echo e(__('Email')); ?>:
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
+                                            <?php echo e($email); ?>
+
+                                        </span></p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:16px;font-weight:bold;color:#007aff;line-height:20px;margin-bottom:5px">
+                                            <?php echo e(__('Password')); ?>:
+                                        <span style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:20px">
+                                            <?php echo e($password); ?>
+
+                                        </span></p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;padding:20px 20px 0 20px">
+                            <a href="<?php echo e(route('welcome')); ?>" style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;background:#007aff;padding:12px 30px;color:#ffffff;font-size:14px;font-weight:700;letter-spacing:0.5px;line-height:16px;border-radius:3px;text-decoration:none;display:inline-block" target="_blank"><?php echo e(__('View Details')); ?></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 20px 0 20px">
+                            <table style="width:100%;margin:auto;border-bottom:1px solid #ebecf2;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td>
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:500;color:#73788b;line-height:16px;text-align:center">
+                                            <?php echo e(__('if button is not working')); ?> <a href="<?php echo e(route('welcome')); ?>" style="margin:0;color:#007aff;font-size:14px;font-weight:500;line-height:16px;display:inline-block" target="_blank"><?php echo e(__('click here')); ?></a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:15px 20px 10px 20px">
+                            <table style="width:100%;margin:auto;padding-bottom:15px">
+                                <tbody><tr>
+                                    <td style="padding:0;text-align:center">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-style:italic;font-weight:normal;font-size:14px;line-height:18px;color:#1e2538;margin:0"><?php echo e(__('Please do not reply to this email. You are receiving this email because')); ?><br><?php echo e(__('you have created an account at')); ?> <a href="<?php echo e(route('welcome')); ?>" style="margin:0;color:#007aff;font-size:14px;font-weight:500;line-height:16px;display:inline-block;font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif" target="_blank"><?php echo e($site_name); ?></a>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:15px 0 0 0">
+                                        <p style="font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif;margin:0;font-size:14px;font-weight:normal;color:#73788b;line-height:16px;text-align:center"><?php echo e(__('Copyright © 2022')); ?> <a href="<?php echo e(route('welcome')); ?>" style="font-family: inherit;text-decoration: none;font-size: 14px;color: #73788b;font-weight: 700;" target="_blank"><?php echo e($company_name); ?></a>. <?php echo e(__('All rights reserved')); ?>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td style="padding:15px 0 0 0">
+                                        <table style="width:100%;margin:auto;max-width:250px">
+                                            <tbody><tr>
+                                                <td style="padding:0">
+                                                <a style="display:block"><img alt="<?php echo e(__('google')); ?>" height="20px" width="auto" title="<?php echo e(__('google')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/google.png')); ?>" /></a>
+                                                </td>
+                                                <td style="padding:0">
+                                                <a style="display:block"><img alt="<?php echo e(__('gmail')); ?>"  height="25px" width="auto" title="<?php echo e(__('gmail')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/gmail.jpg')); ?>" /></a>
+                                                </td>
+                                                <td style="padding:0">
+                                                    <a style="display:block"><img alt="<?php echo e(__('instagram')); ?>"  height="25px" width="auto" title="<?php echo e(__('instagram')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/instagram.jpg')); ?>" /></a>
+                                                </td>
+                                                <td style="padding:0">
+                                                    <a style="display:block"><img alt="<?php echo e(__('linkedin')); ?>"  height="25px" width="auto" title="<?php echo e(__('linkedin')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/linkedIn.jpg')); ?>" /></a>
+                                                </td>
+                                                <td style="padding:0">
+                                                <a style="display:block"><img alt="<?php echo e(__('facebook')); ?>" height="25px" width="auto" title="<?php echo e(__('facebook')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/facebook.png')); ?>" /></a>
+                                                </td>
+                                                <td style="padding:0">
+                                                <a style="display:block"><img alt="<?php echo e(__('twitter')); ?>"  height="25px" width="auto" title="<?php echo e(__('twitter')); ?>" style="display:block;margin:auto" src="<?php echo e(asset('rbtheme/img/twitter.jpg')); ?>" /></a>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html><?php /**PATH C:\Users\jeral\OneDrive\Desktop\Quantum Care Appointment System\resources\views/mail/emp_create_email.blade.php ENDPATH**/ ?>
